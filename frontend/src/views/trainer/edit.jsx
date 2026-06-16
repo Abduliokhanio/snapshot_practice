@@ -49,8 +49,7 @@ function TrainerEdit() {
             let count = 0
             return errors.map((error) => (
                 (<p key={count} style={{color: 'red'}}>{error}</p>)
-            ))
-            
+            ))  
         }
     }
 
