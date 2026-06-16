@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :pokemons, only: [:index]
-    resources :trainers, only: [:index, :show]
+    resources :trainers, only: [:index, :show, :update, :destroy]
   end
 end

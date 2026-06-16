@@ -7,15 +7,17 @@ function listTrainers(data) {
                 <tbody>
                     <tr>
                         <th>Name</th>
-                        <th>Contact</th>
-                        <th>Country</th>
+                        <th>SHOW</th>
+                        <th>EDIT</th>
+                        <th>DELETE</th>
                     </tr>
                     {data.map((trainer) => {
                         return (
                             <tr key={trainer.id}>
                                 <td>{trainer.name}</td>
                                 <td><Link to={`/trainers/${trainer.id}`}>Show</Link></td>
-                                <td><a>Edit</a></td>
+                                <td><Link to={`/trainers/${trainer.id}/edit`}>Edit</Link></td>
+                                <td>Delete</td>
                             </tr>
                         )
                     })}
