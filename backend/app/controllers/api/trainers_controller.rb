@@ -17,6 +17,9 @@ class Api::TrainersController < ApplicationController
     end 
 
     def destroy
+        if Trainer.find_by(id: trainer_id_param).destroy
+            render json: { success: true, message: "successfully deleted" }
+        end 
     end 
 
     private

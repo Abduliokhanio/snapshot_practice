@@ -19,7 +19,7 @@ function TrainerIndex() {
     return (
         <>
             <h1>Trainer Index</h1>
-            {listTrainers(trainerList)}
+            {listTrainers(trainerList,setTrainerList)}
         </>
     )
 }

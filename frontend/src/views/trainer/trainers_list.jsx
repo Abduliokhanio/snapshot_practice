@@ -1,8 +1,38 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-function listTrainers(data) {
+function listTrainers(data, setTrainerList) {
+    const [alert, setAlert] = useState('')
+    let delete_trainer = (trainer_id) => {
+        fetch(`http://localhost:3000/api/trainers/${trainer_id}`, {
+            method: "DELETE"
+        })
+        .then((r) => r.json())
+        .then((d) => {
+            if(d['success']){
+                let new_list = data.filter((trainer) => trainer.id !== trainer_id)
+                setTrainerList(new_list)
+                setAlert(d['message'])
+                setTimeout(() => {
+                    setAlert("");
+                }, 1000);
+            }
+        })
+    }
+
+    let show_alert = () => {
+        if(alert !== ''){
+            return(
+                <>
+                    <p style={{color: 'green'}}>{alert}</p>
+                </>
+            )
+        }
+    } 
+
     return (
-        <>
+        <> 
+            {show_alert()}
             <table>
                 <tbody>
                     <tr>
@@ -17,7 +47,7 @@ function listTrainers(data) {
                                 <td>{trainer.name}</td>
                                 <td><Link to={`/trainers/${trainer.id}`}>Show</Link></td>
                                 <td><Link to={`/trainers/${trainer.id}/edit`}>Edit</Link></td>
-                                <td>Delete</td>
+                                <td><button onClick={()=>{delete_trainer(trainer.id)}}>Delete</button></td>
                             </tr>
                         )
                     })}
