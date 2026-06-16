@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import CreateTrainer from "./create";
 
 function listTrainers(data, setTrainerList) {
     const [alert, setAlert] = useState('')
@@ -32,6 +33,7 @@ function listTrainers(data, setTrainerList) {
 
     return (
         <> 
+            {CreateTrainer(data, setTrainerList)}
             {show_alert()}
             <table>
                 <tbody>

@@ -1,6 +1,7 @@
 class Trainer < ApplicationRecord
     has_many :pokemons, dependent: :destroy
     validate :name_cannot_contain_numbers
+    validates :name, presence: true
 
     private
 

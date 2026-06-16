@@ -3,6 +3,15 @@ class Api::TrainersController < ApplicationController
         render json: Trainer.all
     end
 
+    def create
+        trainer = Trainer.new(trainer_params)
+        if trainer.save
+            render json: { success: true, trainer: trainer }
+        else
+            render json: { success: false, errors: trainer.errors.full_messages }, status: :unprocessable_entity
+        end
+    end 
+
     def show
         render json: Trainer.find_by(id: trainer_id_param)
     end
