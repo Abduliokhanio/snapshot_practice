@@ -7,11 +7,18 @@ class Api::PokemonsController < ApplicationController
     end
 
     def show
+        render json: Pokemon.find(pokemon_id_param)
     end
 
     def update
     end
 
     def destroy
+    end
+
+    private
+
+    def pokemon_id_param
+        params[:id].to_i
     end
 end
