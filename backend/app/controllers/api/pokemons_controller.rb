@@ -4,6 +4,9 @@ class Api::PokemonsController < ApplicationController
     end
 
     def create
+        if pokemon = Pokemon.create(pokemon_params.merge(trainer_id: Trainer.last.id))
+            render json: { success: true, pokemon: pokemon }
+        end 
     end
 
     def show
