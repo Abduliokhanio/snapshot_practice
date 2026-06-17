@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   namespace :api do
-    resources :pokemons, only: [:index]
+    resources :pokemons, only: [:index, :create,:show, :update, :destroy]
     resources :trainers, only: [:index, :create,:show, :update, :destroy]
   end
 end

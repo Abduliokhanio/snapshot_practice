@@ -4,13 +4,19 @@ import PokemonIndex from "../pokemon/index";
 import TrainerIndex from "../trainer/index";
 import TrainerShow from "../trainer/show";
 import TrainerEdit from "../trainer/edit";
+import PokemonShow from "../pokemon/show"
 
 function MyPokemonAppRoutes() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Home />} />
+
+                {/* pokemons */}
                 <Route path="/pokemons" element={<PokemonIndex />} />
+                <Route path="/pokemons/:id" element={<PokemonShow/>} />
+                
+                {/* trainers */}
                 <Route path="/trainers" element={<TrainerIndex />} />
                 <Route path="/trainers/:id" element={<TrainerShow/>} />
                 <Route path="/trainers/:id/edit" element={<TrainerEdit/>} />
