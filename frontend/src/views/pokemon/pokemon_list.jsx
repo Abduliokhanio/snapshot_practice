@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import CratePokemon from './create'
+import PokemonCounter from './pokemonCounter'
 
 class PokemonList extends Component {
     constructor(props) {
@@ -27,6 +28,7 @@ class PokemonList extends Component {
     render() {
         return (
             <>
+                <PokemonCounter></PokemonCounter>
                 <CratePokemon addPokemon={this.addPokemon}/>
                 <ol>
                     {this.state.pokemons.map((pokemon)=>{
