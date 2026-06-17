@@ -11,6 +11,12 @@ class Api::PokemonsController < ApplicationController
     end
 
     def update
+        pokemon = Pokemon.find(pokemon_params[:id])
+        if pokemon.update(pokemon_params)
+            render json: pokemon
+        else
+            render json: pokemon.errors.full_messages, status: :unprocessable_entity
+        end
     end
 
     def destroy
@@ -20,5 +26,9 @@ class Api::PokemonsController < ApplicationController
 
     def pokemon_id_param
         params[:id].to_i
+    end
+
+    def pokemon_params
+        params.require(:pokemon).permit(:id, :name, :trainer_id)
     end
 end

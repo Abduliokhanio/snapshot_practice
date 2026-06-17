@@ -18,7 +18,6 @@ function PokemonIndex() {
     return (
         <>
             <h1>Pokemon Index</h1>
-            {/* {PokemonList(pokemonList)} */}
             <PokemonList data={pokemonList} />
         </>
         

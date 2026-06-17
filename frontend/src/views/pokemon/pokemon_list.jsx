@@ -1,21 +1,6 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 
-// function PokemonList(data){
-//     return(
-//         <>
-//             <ol>
-//                 {data.map((pokemon)=>{
-//                     return <li key={pokemon.id}>{pokemon.name}</li>
-//                 })}
-//             </ol>
-//         </>
-//     )
-
-// }
-
-// export default PokemonList;
-
 class PokemonList extends Component {
 
     constructor(props) {
